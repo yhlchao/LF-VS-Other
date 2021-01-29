@@ -24,25 +24,17 @@ function App() {
     const graph = document.createElement("div");
     graph.id = "graph";
     container.append(graph);
-    // 开始计时
-    const startTimeStamp = new Date().getTime();
     // 初始化
     switch (framework) {
       case "logicflow":
-        initLogicFlow(graph, nodeNumber, edgeNumber);
+        initLogicFlow(graph, nodeNumber, edgeNumber, setTime);
         break;
       case "x6":
-        initX6(graph, nodeNumber, edgeNumber);
+        initX6(graph, nodeNumber, edgeNumber, setTime);
         break;
       default:
         break;
     }
-    // 在渲染完成后的下一次事件循环中结束计时
-    setTimeout(() => {
-      const endTimeStamp = new Date().getTime();
-      const diff = endTimeStamp - startTimeStamp;
-      setTime(diff);
-    }, 0);
   }
 
   function changeGraph() {}
